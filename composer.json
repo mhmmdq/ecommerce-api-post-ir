@@ -1,0 +1,19 @@
+{
+    "name": "mhmmdq/ecommerce-api",
+    "type": "library",
+    "require": {
+        "mhmmdq/request": "^0.2.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mhmmdq\\EcommerceApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mhmmdq",
+            "email": "mhmmdq@mhmmdq.ir"
+        }
+    ]
+}
