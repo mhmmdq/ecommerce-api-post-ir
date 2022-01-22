@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>سفارش</title>
+
+		<style>
+		#navigation {
+			font-family: sans-serif;
+			background-color: #f1f1f1;
+			z-index: 200;
+			border-bottom: 1px solid #dfdfdf;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			position: fixed;
+			padding: 6px 8px;
+			text-align: right;
+		}
+
+		#navigation .button {
+			transition-property: border, background, color;
+			display: inline-block;
+			font-size: 13px;
+			line-height: 26px;
+			height: 28px;
+			margin: 0;
+			padding: 0 10px 1px;
+			cursor: pointer;
+			border-width: 1px;
+			border-style: solid;
+			-webkit-border-radius: 3px;
+			-webkit-appearance: none;
+			border-radius: 3px;
+			white-space: nowrap;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			background: #2ea2cc;
+			border-color: #0074a2;
+			-webkit-box-shadow: inset 0 1px 0 rgba(120,200,230,0.5), 0 1px 0 rgba(0,0,0,.15);
+			box-shadow: inset 0 1px 0 rgba(120,200,230,0.5), 0 1px 0 rgba(0,0,0,.15);
+			color: #fff;
+			text-decoration: none;
+		}
+
+		#navigation .button:hover,
+		#navigation .button:focus {
+			background: #1e8cbe;
+			border-color: #0074a2;
+			-webkit-box-shadow: inset 0 1px 0 rgba(120,200,230,0.6);
+			box-shadow: inset 0 1px 0 rgba(120,200,230,0.6);
+			color: #fff;
+		}
+
+		#navigation .button:active {
+			background: #1b7aa6;
+			border-color: #005684;
+			color: rgba(255,255,255,0.95);
+			-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
+			box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
+		}
+
+		@media print {	
+			#navigation {
+				display: none;
+			}
+		}
+        @font-face {
+ font-family: 'BNazanin';
+   src: url('../fonts/BNazanin.eot?#') format('eot'),
+   url('../fonts/BNazanin.ttf') format('truetype'),
+   url('../fonts/BNazanin.woff') format('woff');
+}
+
+
+body{padding:0 !important;background-color:#fff;margin:5pt;font-family:"B Nazanin", "BNazanin", Tahoma,Arial,sans-serif !important;direction:rtl}
+
+/* NEW STYLE */
+.factor{width: 410pt; height: 100%;}
+.factor{padding: 5pt; font-size: 9pt;margin: 5pt;}
+.box {border: 1pt solid #000}
+.rounded{ border-radius: 5pt}
+.half{width: 49%}
+.clear{clear: both;}
+.text-center{text-align: center}
+.section {margin-bottom: 5pt;clear: both;overflow: hidden;}
+
+.factor_products{font-size:80%;}
+.factor_logo{width: 100pt; float: right;}
+.factor_company{float: right;width: 230pt;}
+.factor_page_title{width: 70pt; float: left;padding-top: 20pt;position: relative;}
+.factor_product_msg, .factor_number{margin-top: 2pt; font-size: 110%; font-weight: bold;}
+.factor_company, .factor_product_msg, .factor_number, .factor_warning, .seller_info, .customer_info {padding: 5pt 2pt;}
+/*.factor_product_msg{display: none}*/
+.seller_info {min-height: 110px;}
+.seller_info, .customer_info {line-height: 1.5}
+.factor_warning {text-align: justify;font-size:85%}
+.customer_info {float: right; min-height: 75pt;font-size: 85%}
+table.products{border-collapse: collapse;}
+table.products th, table.products td { border:1pt solid #000}
+
+.box_mohr {float: left;overflow: hidden; width: 45%; padding: 5pt 2pt; text-align: center;}
+.box_mohr div:nth-child(1) {border-left: 1pt dashed #000;float: right;min-height: 75pt}
+
+
+.factor_customer_info {margin-top: 5pt;}
+.factor_return {border-top: 1pt dashed #000;padding-top: 5pt}
+.square {display: inline-block;width: 8pt;height: 8pt; border:1pt solid #000; border-radius: 1pt;margin-left: 5pt}
+
+.section_post{border-collapse: collapse; border: 1pt dashed #000; width:55mm;font-size:90%;}
+.print_barcode { text-align:center;}
+/*.print_barcode img{
+    height: 8mm;
+}*/
+
+.seller_name {text-decoration: underline;font-weight: bolder;}
+
+
+
+@media print {
+    .factor_table,.page-break{
+        page-break-after: always;
+    }
+
+    .factor.box {border:0 !important;}
+}
+@page {
+    margin: 0;
+    size: "A5";
+}
+	</style>
+	</head>
+
+<body class="order">
+
+	<div id="container">
+
+			<div id="navigation">
+		<a href="#" class="button" onclick="window.print();return false;">چاپ</a>
+	</div><!-- #navigation -->
+	
+		<div id="page">
+
+	
+		
+			
+			
+				<article class="content">
+
+						
+	<center>
+			<div class="factor box" style="text-align: initial !important;">
+				<div class="section factor_title_bar box rounded">
+
+					<div class="factor_logo">
+				<img style="margin-right: 4px;" src="{companyLogo}" width="120" height="55">					</div>
+					<div class="factor_company">
+						نام شرکت :{companyName}<br />
+						نشانی اینترنتی شرکت : <bdi>https://{companyUrl}</bdi><br />
+						تلفن تماس واحد پشتیبانی : {companyPhone}
+					</div>
+					<div class="factor_page_title text-center">
+						برگه اطلاعات سفارش
+					</div>
+
+				</div>
+											<div class="section factor_seller_info">
+					<div class="half" style="float: right">
+						<div class="box factor_warning">تمامی مسئولیت‌های مرتبط با محتوای سفارش اعم از مطابقت سفارش با
+							درخواست مشتری و رعایت قوانین و مقررات مربوطه صرفا برعهده فروشگاه می‌باشد.</div>
+						<div class="box factor_number">شناسه سفارش : <bdi>{orderID}</bdi></div>
+						<div class="box factor_product_msg">اطلاعات محصول خریداری شده :</div>
+					</div>
+					
+					</strong>
+										<div class="box half seller_info" style="float: left">
+						<strong class="seller_name">فرستنده (فروشگاه)</strong> :<span
+							class="seller_name">{companyName} ({sellerName})</span> <br />
+						<strong>استان</strong> : <strong>{sellerState}</strong>&nbsp;&nbsp;&nbsp;&nbsp; <strong>شهر</strong>:{sellerAddress}<br />
+						<strong>آدرس</strong> : <br />
+						<strong>کد‌پستی</strong> : {sellerPostalCode}&nbsp;&nbsp;&nbsp;&nbsp;
+						<strong>تلفن</strong> : {companyPhone}<br />
+						<strong>زمان پاسخگویی</strong> : 8 الی 14 - 17 الی 21&nbsp;&nbsp;&nbsp;&nbsp;
+						<strong>شناسه نماد اعتماد</strong> : -&nbsp;&nbsp;&nbsp;&nbsp;
+						<strong>آدرس اینترنتی</strong> : <span
+							dir="ltr">{companyUrl}</span>&nbsp;&nbsp;&nbsp;&nbsp;<strong>ایمیل</strong> : {companyEmail}
+
+					</div>
+				</div>
+				<div class="section factor_products">
+					{Table}
+				</div>
+				
+					
+
+				<div class="section factor_customer_info">
+					<div class="box half customer_info">
+						<strong>گیرنده (خریدار)</strong>: {customerName}<br />
+						<strong>استان</strong> :{customerState}&nbsp;&nbsp;&nbsp;&nbsp;<strong>شهر</strong> :{customerCity}<br />
+						<strong>آدرس</strong>: {customerAddress}<br />
+						<strong>کدپستی</strong> : {customerPostalCode}&nbsp;&nbsp;&nbsp;&nbsp;
+						<strong>تلفن ثابت</strong>
+						: - <br />
+						<strong>تلفن همراه</strong> : {customerPhone}<br />
+						<strong>پیام</strong> : {customerMessage}
+					</div>
+					<div class="box rounded box_mohr">
+						<div class="half" style="position: relative;">
+							<strong>محل مهر فروشگاه</strong>
+
+						</div>
+						<div class="half" style="float: left">
+							<strong>محل امضا خریدار</strong>
+						</div>
+					</div>
+				</div>
+				<div class="section factor_return">
+					<div class="box half rounded" style="float: right;min-height: 110pt;width: 42%;">
+						<strong style="padding: 5pt 5pt 0 0; display: inline-block">علت برگشتی :</strong><br />
+						<div style="overflow: hidden;font-size: 80%;margin: 10pt 5pt 5pt 5pt" class="clear">
+							<div class="half" style="float: right">
+								<div class="square"></div>عدم اطلاع از سفارش<br />
+								<div class="square"></div>عدم وجود وجه نقد/کارت بانکی<br />
+								<div class="square"></div>درخواست بازگشایی<br />
+								<div class="square"></div>انصراف از خرید<br />
+								<div class="square"></div>سفارش تکراری<br />
+							</div>
+							<div class="half" style="float: left">
+								<div class="square"></div>نقل مکان<br />
+								<div class="square"></div>مغایرت مبلغ فاکتور<br />
+								<div class="square"></div>تاخیر در ارسال سفارش<br />
+								<div class="square"></div>گیرنده شناخته نشد<br />
+								<div class="square"></div>سایر موارد ...<br />
+							</div>
+						</div>
+						<strong style="padding: 5pt 5pt 5pt 0; display: inline-block">نام و نام خانوادگی نامه رسان و امضا :
+						</strong>
+					</div>
+						
+						<div class="half" style="width: 14%; float: right;transform: rotate(90deg);text-align: center;margin: 180px 0 0;">
+					<img src="{barcode}" /><br />
+										
+					</div>
+					<div class="half" style="width: 43%; float: left">
+						<table class="section_post" style="width:100%">
+							<tr style="border-bottom: 1pt solid #000;height: 15mm">
+								<td colspan="2" class="text-center">
+									<img src="data:image/png;base64,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" style="width:55px" />
+									<br />
+									خدمات تجارت الکترونیک &nbsp;&nbsp;&nbsp;
+									نوع ارسال : کالا
+								</td>
+							</tr>
+							<tr>
+							<table>
+							<tr>
+								<td>
+								<table>
+									<tr style="border-bottom: 1pt solid #000">
+									<td colspan="2"> مبدا ◄ {sellerState}&nbsp;&nbsp;- &nbsp;&nbsp;{sellerAddress}</td>
+									</tr>
+									<tr style="border-bottom: 1pt solid #000">
+									<td>مقصد ◄ {customerState}&nbsp;&nbsp;&nbsp;&nbsp; - {customerCity}</td>
+								<td style="width: 45%">
+									وزن ◄ {weight} گرم
+								</td>
+									</tr>
+									<tr>
+																	<td>تاریخ ◄ {date}</td>
+								<td>زمان ◄ {time}</td>
+									</tr>
+								</table>
+								</td>
+								<td style="color: #BD1820;font-size: 41px;font-weight: 900;">13</td>
+							</tr>
+							</table>
+							
+							</tr>
+							
+							<tr style="border-bottom: 1pt solid #000;height: 4mm">
+																<td>کرایه پستی ◄ {sendPost} ریال</td>
+								<td>
+									<span style="font-size: 70%">مالیات کرایه پستی ◄</span>
+									<small>{sendPostMaliyat} ریال</small>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<div class="print_barcode" style="padding: 0 10px;">
+								
+										<img style="width: 100%;" src="{barcode}" /><br />
+										<span style="font-family: monospace;">{code}</span>
+									</div>
+								</td>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+				<div class="section post_info text-center">
+					<div class="box" style="width: 75%;margin: 0 auto;padding: 2pt">
+						مرکز امور مشتریان <bdi>193</bdi>
+					</div>
+					<span style="font-size: 125%">
+						مقصد : <strong>{customerState}&nbsp;&nbsp;&nbsp;&nbsp; - {customerCity}</strong>
+					</span>
+				</div>
+			</div>
+		</center>
+		
+		
+				</article>
+
+			
+			
+		
+	
+
+		</div><!-- #page -->
+
+		
+	</div><!-- #container -->
+
+</body>
+</html>
+
