@@ -13,11 +13,11 @@ class Factor {
         $template = $this->loadTemplate();
         $table = $this->createOrderTable( $products );
         $template = str_replace([
-            '{companyName}' , '{companyLogo}' , '{companyPhone}' , '{companyWebsite}' , '{companyEmail}' , '{sellerName}' , '{sellerState}' , '{sellerAddress}' ,
+            '{companyName}' , '{companyLogo}' , '{companyPhone}' , '{companyUrl}' , '{companyEmail}' , '{sellerName}' , '{sellerState}' , '{sellerAddress}' ,
             '{sellerPostalCode}', '{orderID}' , '{Table}' , '{customerName}' , '{customerState}' , '{customerCity}' , '{customerAddress}' , '{customerPhone}' ,
             '{customerMessage}' , '{customerPostalCode}' , '{barcode}' , '{code}' , '{weight}' , '{date}' , '{time}' , '{sendPost}' , '{sendPostMaliyat}'
         ] , [
-            $companyName , $companyLogo , $companyPhone , $companyWebsite , $companyWebsite , $sellerName , $sellerState , $sellerAddress , $sellerPostalCode,
+            $companyName , $companyLogo , $companyPhone , $companyWebsite , $companyEmail , $sellerName , $sellerState , $sellerAddress , $sellerPostalCode,
             $orderID , $table , $customerName , $customerState , $customerCity , $customerAddress , $customerPhone , $customerMessage , $customerPostalCode , $barcode,
             $code , $weight , $date , $time , $sendPost , $sendPostMaliyat
         ] , $template);
