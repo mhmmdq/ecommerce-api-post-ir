@@ -21,7 +21,8 @@ class GateWay {
             $this->ch->curl_set_opt(CURLOPT_HTTPHEADER , [
                 "username: {$username}",
                 "password: {$password}",
-                "apikey: {$apiKey}"
+                "apikey: {$apiKey}",
+                "Content-Type:application/json",
             ]);
         }
 
@@ -35,10 +36,6 @@ class GateWay {
             return $this->ch->post(self::$BaseUri . __FUNCTION__ . "?StateID={$stateID}" , )->send();
         }
 
-        public function GetParcelTrack()
-        {
-
-        }
 
         public function RegisterShop(string $ShopID = null , string $ShopUsername , string $Shopname , string $Phone , string $PostalCode ,
                                     string $ManagerName = null , string $ManagerFamily = null , string $ManagerNashnalID , string $ManagerNationalIDSerial,
@@ -72,17 +69,31 @@ class GateWay {
             ]);
         }
 
-        public function GetPrice()
+        public function GetPrice($PriceClassJson)
         {
-            return $this->ch->post(self::$BaseUri . __FUNCTION__)->send();
+            return $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson($PriceClassJson);
+        }
+
+        public static function MakePrice($DestinationCityID,$NonStandardPackage,$ParcelServiceType,$ParcelValue,$PaymentType,$SMSService,$ShopID,$Weight) {
+
+            return json_encode([
+                'DestinationCityID' => $DestinationCityID,
+                'NonStandardPackage' => $NonStandardPackage ,
+                'ParcelServiceType' => $ParcelServiceType,
+                'ParcelValue' => $ParcelValue,
+                'PaymentType' => $PaymentType,
+                'SMSService' => $SMSService,
+                'ShopID' => $ShopID,
+                'Weight' => $Weight,
+            ]);
 
         }
 
-        public function AddRequest( $OrderID , $Price , $CustomerNID , $CustomerName , $CustomerFamily , $CustomerMobile , $CustomerEmail , $CustomerPostalCode , $CustomerAddress , $ParcelContent )
+        public function AddRequest( $OrderID , $PriceClassJson , $CustomerNID , $CustomerName , $CustomerFamily , $CustomerMobile , $CustomerEmail , $CustomerPostalCode , $CustomerAddress , $ParcelContent )
         {
-            return $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
+             $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
                 'OrderID' => $OrderID,
-                'Price' => $Price,
+                'Price' => $PriceClassJson,
                 'CustomerNID' => $CustomerNID,
                 'CustomerName' => $CustomerName,
                 'CustomerFamily' => $CustomerFamily,
