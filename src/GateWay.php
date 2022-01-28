@@ -76,7 +76,7 @@ class GateWay {
 
         public static function MakePrice($DestinationCityID,$NonStandardPackage,$ParcelServiceType,$ParcelValue,$PaymentType,$SMSService,$ShopID,$Weight) {
 
-            return json_encode([
+            return [
                 'DestinationCityID' => $DestinationCityID,
                 'NonStandardPackage' => $NonStandardPackage ,
                 'ParcelServiceType' => $ParcelServiceType,
@@ -85,7 +85,7 @@ class GateWay {
                 'SMSService' => $SMSService,
                 'ShopID' => $ShopID,
                 'Weight' => $Weight,
-            ]);
+            ];
 
         }
 
