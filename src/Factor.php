@@ -19,8 +19,8 @@ class Factor {
         ] , [
             $companyName , $companyLogo , $companyPhone , $companyWebsite , $companyEmail , $sellerName , $sellerState , $sellerAddress , $sellerPostalCode,
             $orderID , $table , $customerName , $customerState , $customerCity , $customerAddress , $customerPhone , $customerMessage , $customerPostalCode , $barcode,
-            $code , $weight , $date , $time , $sendPost , $sendPostMaliyat
-        ] , $template , $stateCode);
+            $code , $weight , $date , $time , $sendPost , $sendPostMaliyat , $stateCode
+        ] , $template);
 
         echo $template;
     }
