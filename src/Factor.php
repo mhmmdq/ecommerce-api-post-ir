@@ -7,7 +7,7 @@ class Factor {
     public function __construct(
         $companyName, $companyLogo, $companyPhone, $companyWebsite, $companyEmail, $sellerName, $sellerState, $sellerAddress, $sellerPostalCode, $orderID,
         array $products, $customerName, $customerState, $customerCity, $customerAddress, $customerPhone, $customerMessage, $customerPostalCode,
-        $barcode, $code, $weight, $date, $time, $sendPost, $sendPostMaliyat 
+        $barcode, $code, $weight, $date, $time, $sendPost, $sendPostMaliyat , $stateCode
     )
     {
         $template = $this->loadTemplate();
@@ -15,12 +15,12 @@ class Factor {
         $template = str_replace([
             '{companyName}' , '{companyLogo}' , '{companyPhone}' , '{companyUrl}' , '{companyEmail}' , '{sellerName}' , '{sellerState}' , '{sellerAddress}' ,
             '{sellerPostalCode}', '{orderID}' , '{Table}' , '{customerName}' , '{customerState}' , '{customerCity}' , '{customerAddress}' , '{customerPhone}' ,
-            '{customerMessage}' , '{customerPostalCode}' , '{barcode}' , '{code}' , '{weight}' , '{date}' , '{time}' , '{sendPost}' , '{sendPostMaliyat}'
+            '{customerMessage}' , '{customerPostalCode}' , '{barcode}' , '{code}' , '{weight}' , '{date}' , '{time}' , '{sendPost}' , '{sendPostMaliyat}' , '{stateCode}'
         ] , [
             $companyName , $companyLogo , $companyPhone , $companyWebsite , $companyEmail , $sellerName , $sellerState , $sellerAddress , $sellerPostalCode,
             $orderID , $table , $customerName , $customerState , $customerCity , $customerAddress , $customerPhone , $customerMessage , $customerPostalCode , $barcode,
             $code , $weight , $date , $time , $sendPost , $sendPostMaliyat
-        ] , $template);
+        ] , $template , $stateCode);
 
         echo $template;
     }

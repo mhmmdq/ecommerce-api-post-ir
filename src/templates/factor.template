@@ -274,7 +274,7 @@ table.products th, table.products td { border:1pt solid #000}
 									</tr>
 								</table>
 								</td>
-								<td style="color: #BD1820;font-size: 41px;font-weight: 900;">13</td>
+								<td style="color: #BD1820;font-size: 41px;font-weight: 900;">{stateCode}</td>
 							</tr>
 							</table>
 							
