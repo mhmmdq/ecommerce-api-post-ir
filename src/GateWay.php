@@ -122,12 +122,12 @@ class GateWay {
             
         }
 
-        public function DeleteRequest( string $Barcode )
+        public function DeleteRequests( string $Barcode )
         {
-            $result = $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
-                'Barcode' => $Barcode
-            ]);
-            switch($result) {
+            $result = json_decode($this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
+                ['Barcode' => $Barcode]
+            ]) , true);
+            switch($result['Result']) {
                 case "0":
                     return 'با موفقیت حذف شد';
                     break;
@@ -140,6 +140,7 @@ class GateWay {
                 case "3":
                     return 'عدم وجود اطلاعات بارکد';
                     break;
+                return 'خطای نامشخص';
             }
         }
 
