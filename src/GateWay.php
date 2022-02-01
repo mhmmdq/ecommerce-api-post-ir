@@ -140,16 +140,18 @@ class GateWay {
                 case "3":
                     return 'عدم وجود اطلاعات بارکد';
                     break;
-                return 'خطای نامشخص';
+                default:
+                    return $result['Result'];
+                    break;
             }
         }
 
         public function ReadyToCollectRequests( string $Barcode )
         {
-            $result =  $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
-                'Barcode' => $Barcode
-            ]);
-            switch($result) {
+            $result =  json_decode($this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
+                ['Barcode' => $Barcode]
+            ]) , true);
+            switch($result['Result']) {
                 case "0":
                     return 'تغییر وضعیت موقق';
                     break;
@@ -161,16 +163,19 @@ class GateWay {
                     break;
                 case "3":
                     return 'عدم وجود اطلاعات بارکد';
+                    break;
+                default:
+                    return $result['Result'];
                     break;
             }
         }
 
         public function SuspendRequests( string $Barcode )
         {
-            $result =  $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
-                'Barcode' => $Barcode
-            ]);
-            switch($result) {
+            $result =  json_decode($this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
+                ['Barcode' => $Barcode]
+            ]) , true);
+            switch($result['Result']) {
                 case "0":
                     return 'تغییر وضعیت موقق';
                     break;
@@ -182,6 +187,9 @@ class GateWay {
                     break;
                 case "3":
                     return 'عدم وجود اطلاعات بارکد';
+                    break;
+                default:
+                    return $result['Result'];
                     break;
             }
         }
