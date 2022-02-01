@@ -91,7 +91,7 @@ class GateWay {
 
         public function AddRequest( $OrderID , $PriceClassJson , $CustomerNID , $CustomerName , $CustomerFamily , $CustomerMobile , $CustomerEmail , $CustomerPostalCode , $CustomerAddress , $ParcelContent )
         {
-             $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
+             return $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
                 'OrderID' => $OrderID,
                 'Price' => $PriceClassJson,
                 'CustomerNID' => $CustomerNID,
