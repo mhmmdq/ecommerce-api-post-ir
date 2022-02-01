@@ -91,18 +91,35 @@ class GateWay {
 
         public function AddRequest( $OrderID , $PriceClassJson , $CustomerNID , $CustomerName , $CustomerFamily , $CustomerMobile , $CustomerEmail , $CustomerPostalCode , $CustomerAddress , $ParcelContent )
         {
-             return $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
-                'OrderID' => $OrderID,
-                'Price' => $PriceClassJson,
-                'CustomerNID' => $CustomerNID,
-                'CustomerName' => $CustomerName,
-                'CustomerFamily' => $CustomerFamily,
-                'CustomerMobile' => $CustomerMobile,
-                'CustomerEmail' => $CustomerEmail,
-                'CustomerPostalCode' => $CustomerPostalCode,
-                'CustomerAddress' => $CustomerAddress,
-                'ParcelContent' => $ParcelContent
-            ]);
+            if(!empty($CustomerNID))
+            {
+                return $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
+                    'OrderID' => $OrderID,
+                    'Price' => $PriceClassJson,
+                    'CustomerNID' => $CustomerNID,
+                    'CustomerName' => $CustomerName,
+                    'CustomerFamily' => $CustomerFamily,
+                    'CustomerMobile' => $CustomerMobile,
+                    'CustomerEmail' => $CustomerEmail,
+                    'CustomerPostalCode' => $CustomerPostalCode,
+                    'CustomerAddress' => $CustomerAddress,
+                    'ParcelContent' => $ParcelContent
+                ]);
+            }else {
+                return $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson([
+                    'OrderID' => $OrderID,
+                    'Price' => $PriceClassJson,
+                    'CustomerName' => $CustomerName,
+                    'CustomerFamily' => $CustomerFamily,
+                    'CustomerMobile' => $CustomerMobile,
+                    'CustomerEmail' => $CustomerEmail,
+                    'CustomerPostalCode' => $CustomerPostalCode,
+                    'CustomerAddress' => $CustomerAddress,
+                    'ParcelContent' => $ParcelContent
+                ]);
+            }
+
+            
         }
 
         public function DeleteRequest( string $Barcode )
