@@ -35,9 +35,13 @@ class Factor {
     protected function createOrderTable( array $products )
     {
         $output = '<table style="width: 100%;" class="products"><thead style="background:#ddd"><tr><th style="background:#ddd; border:1px solid #000">شرح محصول</th><th style="background:#ddd; border:1px solid #000">شعبه</th><th style="background:#ddd; border:1px solid #000">تعداد</th><th style="background:#ddd; border:1px solid #000">قیمت واحد (ريال)</th><th style="background:#ddd; border:1px solid #000">هزینه ارسال (ريال)</th><th style="background:#ddd; border:1px solid #000">قیمت کل (ريال)</th></tr></thead><tbody>';
-
+        $i = 1;
         foreach( $products as $product )
         {
+            if($i = 2) {
+                $product['send_price'] = '-';
+            }
+            $i++;
             $output .= "<tr>";
             $output .= "<td class='product-name'><span class='name'>{$product['product_name']}</span></td>";
             $output .= "<td>{$product['seller']}</td>'";
