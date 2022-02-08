@@ -38,7 +38,7 @@ class Factor {
         $i = 1;
         foreach( $products as $product )
         {
-            if($i = 2) {
+            if($i == 2) {
                 $product['send_price'] = '-';
             }
             $i++;
