@@ -48,7 +48,7 @@ class Factor {
             $output .= "<tr>";
         }
 
-        $output = '</tbody><tfoot style="font-size: 100%"><tr><td colspan="3" class="text-center" style="vertical-align: middle;background: #ccc">نوع پرداخت : آنلاین<br></td><td colspan="3" class="text-center" style="vertical-align: middle;line-height: 1.5;"><div style="position: relative">مجموع مبلغ قابل پرداخت توسط گیرنده (خریدار) :<br><bdi>0 ریال</bdi></div></td></tr></tfoot></table>';
+        $output .= '</tbody><tfoot style="font-size: 100%"><tr><td colspan="3" class="text-center" style="vertical-align: middle;background: #ccc">نوع پرداخت : آنلاین<br></td><td colspan="3" class="text-center" style="vertical-align: middle;line-height: 1.5;"><div style="position: relative">مجموع مبلغ قابل پرداخت توسط گیرنده (خریدار) :<br><bdi>0 ریال</bdi></div></td></tr></tfoot></table>';
 
         return $output;
     }
