@@ -39,7 +39,7 @@ class Factor {
         foreach( $products as $product )
         {
             $output .= "<tr>";
-            $output .= "<td> class='product-name'><span class='name'>{$product['product_name']}</span></td>";
+            $output .= "<td class='product-name'><span class='name'>{$product['product_name']}</span></td>";
             $output .= "<td>{$product['seller']}</td>'";
             $output .= "<td class='product-quantity'><span>{$product['quantity']}</span></td>";
             $output .= "<td class='product-item-price'><span>{$product['item_price']}</span></td>";
