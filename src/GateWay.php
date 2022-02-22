@@ -74,7 +74,7 @@ class GateWay {
             return $this->ch->post(self::$BaseUri . __FUNCTION__)->sendJson($PriceClassJson);
         }
 
-        public static function MakePrice($DestinationCityID,$NonStandardPackage,$ParcelServiceType,$ParcelValue,$PaymentType,$SMSService,$ShopID,$Weight) {
+        public static function MakePrice($DestinationCityID,$NonStandardPackage,$ParcelServiceType,$ParcelValue,$PaymentType,$SMSService,$ShopID,$Weight,$NeedToCollect) {
 
             return [
                 'DestinationCityID' => $DestinationCityID,
@@ -85,6 +85,7 @@ class GateWay {
                 'SMSService' => $SMSService,
                 'ShopID' => $ShopID,
                 'Weight' => $Weight,
+                'IsCollectNeed' => $NeedToCollect
             ];
 
         }
