@@ -12,7 +12,7 @@ class GateWay {
         {
             $this->ch = new Curl();
             
-            $this->ch->curl_set_opt(CURLOPT_SSL_CIPHER_LIST , 'DEFAULT@SECLEVEL=1');
+            // $this->ch->curl_set_opt(CURLOPT_SSL_CIPHER_LIST , 'DEFAULT@SECLEVEL=1');
             
             $this->ch->useragent('GateWay Class V1.0');
 
